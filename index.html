@@ -3,218 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYWEAR CO. | Community & Sports</title>
-    <!-- 引入一个简单的无衬线字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>KYWEAR CO. | Community & Sports Apparel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础重置 */
+        /* Global Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #fafafa;
+            color: #111;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
+        a { text-decoration: none; color: inherit; }
 
-        /* 顶部导航 */
+        /* Top Navigation */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 5%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        /* Custom Geometric Logo */
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 2px;
-            color: #111;
-            text-decoration: none;
+            text-transform: uppercase;
         }
         nav a {
-            margin-left: 20px;
-            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: #555;
-            font-size: 0.9rem;
             transition: color 0.2s;
         }
         nav a:hover { color: #000; }
 
-        /* 主视觉区 */
+        /* Hero Section with Slogan */
         .hero {
-            background-color: #f0f0f0;
+            background-color: #111;
+            color: #fff;
             text-align: center;
-            padding: 80px 20px;
-            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1600');
+            padding: 120px 20px;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1600');
             background-size: cover;
             background-position: center;
         }
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #111;
-            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
         }
         .hero p {
-            font-size: 1.1rem;
-            color: #444;
-            max-width: 600px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #ccc;
+            max-width: 700px;
             margin: 0 auto;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        /* 商品展示区 */
-        .container {
-            max-width: 1200px;
-            margin: 60px auto;
+        /* Product Section */
+        .shop-container {
+            max-width: 1100px;
+            margin: 100px auto;
             padding: 0 20px;
         }
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            font-weight: 400;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
         }
         .product-card {
-            background: #fff;
+            background: #ffffff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
         }
         .product-image {
             width: 100%;
-            height: 300px;
+            height: 420px;
             background-color: #eaeaea;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9rem;
-            /* 这里用占位图代替，你可以自己替换为真实的衣服图片 URL */
-            background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=600');
             background-size: cover;
             background-position: center;
         }
+        /* High-quality placeholder images for apparel */
+        .img-shorts { background-image: url('https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=800'); }
+        .img-tee { background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800'); }
+        
         .product-info {
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
         .product-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #222;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
-        .product-info p {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 15px;
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 25px;
+            min-height: 45px; /* Keeps buttons aligned */
         }
         .price {
+            font-size: 1.2rem;
             font-weight: 600;
             color: #111;
-            font-size: 1rem;
-            display: block;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 24px;
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
             background-color: #111;
             color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            transition: background-color 0.2s;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.9rem;
         }
-        .btn:hover { background-color: #333; }
+        .buy-btn:hover { background-color: #333; }
 
-        /* 页脚 */
+        /* Footer & Contact */
         footer {
+            background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
+            padding: 80px 20px;
             text-align: center;
-            padding: 40px 20px;
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        footer h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        footer p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        
+        /* 联系方式与地址的容器 */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* 控制邮箱按钮和地址的间距 */
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border: 2px solid #111;
+            color: #111;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        .contact-btn:hover {
             background-color: #111;
-            color: #888;
-            font-size: 0.85rem;
-            margin-top: 80px;
+            color: #fff;
+        }
+
+        /* 地址样式 */
+        .address {
+            font-size: 0.9rem;
+            color: #555;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #999;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 导航 -->
+    <!-- Navigation -->
     <header>
-        <a href="#" class="logo">KYWEAR CO.</a>
+        <div class="logo-container">
+            <!-- Custom Logo -->
+            <div class="logo-icon">KY</div>
+            <div class="logo-text">KYWEAR CO.</div>
+        </div>
         <nav>
             <a href="#shop">Shop</a>
-            <a href="#mission">Our Mission</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <!-- 主视觉 -->
-    <section class="hero" id="mission">
-        <h1>More Than Just Apparel</h1>
-        <p>Every purchase champions community support and sportsmanship. Join us in giving back, one T-shirt and sport at a time.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Wear Your Support.<br>Champion the Community.</h1>
+        <p>More than just apparel. Every purchase champions sportsmanship and gives back to the community, one T-shirt and sport at a time.</p>
     </section>
 
-    <!-- 商品展示 -->
-    <section class="container" id="shop">
+    <!-- Product Collection -->
+    <section class="shop-container" id="shop">
         <h2 class="section-title">Featured Collection</h2>
+        
         <div class="product-grid">
             
-            <!-- 商品 1 -->
+            <!-- Product 1: Shorts -->
             <div class="product-card">
-                <div class="product-image"></div>
-                <div class="product-info">
-                    <h3>Signature Faith Tee</h3>
-                    <p>Support Emma Barnett — faith, determination, and community.</p>
-                    <span class="price">$25.00</span>
-                    <a href="#" class="btn">View Product</a>
-                </div>
-            </div>
-
-            <!-- 商品 2 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="product-image img-shorts"></div>
                 <div class="product-info">
                     <h3>Vitality Performance Shorts</h3>
-                    <p>High-waisted women’s performance shorts with vertical gradient logo.</p>
-                    <span class="price">$35.00</span>
-                    <a href="#" class="btn">View Product</a>
+                    <p class="product-desc">High-waisted women’s performance shorts with vertical gradient logo.</p>
+                    <div class="price">$35.00</div>
+                    <a href="#" class="buy-btn">View Product</a>
                 </div>
             </div>
 
-            <!-- 商品 3 -->
+            <!-- Product 2: Tee -->
             <div class="product-card">
-                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&q=80&w=600');"></div>
+                <div class="product-image img-tee"></div>
                 <div class="product-info">
-                    <h3>Community Supporter Tee</h3>
-                    <p>Wear your support. Every purchase gives back to local sports.</p>
-                    <span class="price">$25.00</span>
-                    <a href="#" class="btn">View Product</a>
+                    <h3>Signature Faith Tee</h3>
+                    <p class="product-desc">Support Emma Barnett — faith, determination, and community.</p>
+                    <div class="price">$25.00</div>
+                    <a href="#" class="buy-btn">View Product</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- 页脚 -->
-    <footer>
-        &copy; 2024 KYWEAR CO. — Campbellsville, KY. All rights reserved.
+    <!-- Contact Info -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h4>GET IN TOUCH</h4>
+            <p>Have questions about our mission or products? We would love to hear from you.</p>
+            
+            <!-- 包含邮箱和地址的模块 -->
+            <div class="contact-info">
+                <a href="mailto:info@kywear.org" class="contact-btn">info@kywear.org</a>
+                <!-- 加上了真实地址 -->
+                <div class="address">
+                    2424 Saloma Rd, Campbellsville, KY 42718
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2024 KYWEAR CO. ALL RIGHTS RESERVED.
+            </div>
+        </div>
     </footer>
 
 </body>
