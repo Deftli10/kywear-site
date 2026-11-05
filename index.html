@@ -3,314 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYWEAR CO. | Community & Sports Apparel</title>
+    <title>KYWEAR | Thanks-N-Hoops</title>
+    <!-- 浏览器标签图标 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%23ff4d4d%22/><text x=%2250%22 y=%2255%22 font-family=%22Arial%22 font-size=%2245%22 font-weight=%22bold%22 fill=%22white%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22>K</text></svg>">
+    
+    <!-- 引入字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Global Reset */
+        /* 基础设置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fafafa;
+            background-color: #f7f7f7;
             color: #111;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
         a { text-decoration: none; color: inherit; }
 
-        /* Top Navigation */
+        /* 顶部导航栏 */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 20px;
             background-color: #ffffff;
             border-bottom: 1px solid #eaeaea;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .icon-btn {
+            width: 40px; height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; font-size: 1.2rem;
         }
-        /* Custom Geometric Logo */
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background-color: #111;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
+        /* 把原来的文字 Logo 换成了你发的那张彩色图 */
+        .header-logo-img {
+            height: 45px;
+            object-fit: contain;
         }
-        .logo-text {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        nav a {
-            margin-left: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #555;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: #000; }
+        .header-right { display: flex; gap: 10px; }
 
-        /* Hero Section with Slogan */
-        .hero {
-            background-color: #111;
-            color: #fff;
+        /* 口号 */
+        .slogan {
             text-align: center;
-            padding: 120px 20px;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
+            padding: 12px 0;
+            background-color: #fff;
+            font-size: 0.85rem;
+            color: #666;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eaeaea;
         }
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #ccc;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
+        .slogan span:nth-child(1) { color: #e066ff; font-weight: 600; }
+        .slogan span:nth-child(2) { color: #ffb84d; font-weight: 600; }
+        .slogan span:nth-child(3) { color: #4dff88; font-weight: 600; }
+        .slogan span:nth-child(4) { color: #4d94ff; font-weight: 600; }
 
-        /* Product Section */
-        .shop-container {
-            max-width: 1100px;
-            margin: 100px auto;
+        /* 主体 */
+        .main-container {
+            max-width: 1050px;
+            margin: 40px auto;
             padding: 0 20px;
         }
-        .section-title {
-            text-align: center;
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-        .product-card {
-            background: #ffffff;
-            border-radius: 8px;
+
+        /* 活动卡片 */
+        .event-card {
+            display: flex;
+            background: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid #eaeaea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            padding: 20px;
         }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        .event-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 30px;
         }
-        .product-image {
+        /* 图片等比缩放 */
+        .event-image img {
             width: 100%;
-            height: 420px;
-            background-color: #eaeaea;
+            max-width: 450px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .event-info {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .event-tag { font-size: 0.75rem; font-weight: 600; color: #888; letter-spacing: 1px; margin-bottom: 10px; }
+        .event-title { font-size: 2rem; font-weight: 600; margin-bottom: 20px; }
+        .event-details { margin-bottom: 20px; font-size: 0.95rem; color: #444; }
+        .event-details p { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .event-desc { font-size: 1rem; font-weight: 600; margin-bottom: 15px; }
+        .badge {
+            display: inline-block;
+            background-color: #e8f5e9; color: #2e7d32;
+            padding: 5px 12px; border-radius: 20px;
+            font-size: 0.75rem; font-weight: 600;
+            margin-bottom: 20px; width: fit-content;
+        }
+        .register-btn {
+            background-color: #3295ff; 
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+        .register-btn:hover { background-color: #1a7ae6; }
+
+        /* 商品区 */
+        .section-header {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .product-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .product-thumb {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-right: 20px;
+            background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=200');
             background-size: cover;
             background-position: center;
         }
-        /* High-quality placeholder images for apparel */
-        .img-shorts { background-image: url('https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=800'); }
-        .img-tee { background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=800'); }
-        
-        .product-info {
-            padding: 30px;
-            text-align: center;
-        }
-        .product-info h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .product-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 25px;
-            min-height: 45px; /* Keeps buttons aligned */
-        }
-        .price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 25px;
-        }
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            background-color: #111;
-            color: #fff;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 0.9rem;
-        }
-        .buy-btn:hover { background-color: #333; }
-
-        /* Footer & Contact */
-        footer {
-            background-color: #ffffff;
-            border-top: 1px solid #eaeaea;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        footer h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-        footer p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-        }
-        
-        /* 联系方式与地址的容器 */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px; /* 控制邮箱按钮和地址的间距 */
-            margin-bottom: 40px;
-        }
-
-        .contact-btn {
+        .product-data { flex: 1; }
+        .product-category { font-size: 0.7rem; color: #999; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+        .product-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+        .shop-btn {
             display: inline-block;
-            padding: 14px 35px;
-            border: 2px solid #111;
-            color: #111;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: all 0.3s;
-            letter-spacing: 1px;
-        }
-        .contact-btn:hover {
             background-color: #111;
             color: #fff;
-        }
-
-        /* 地址样式 */
-        .address {
+            padding: 10px 24px;
+            border-radius: 30px;
             font-size: 0.9rem;
-            color: #555;
-            letter-spacing: 0.5px;
-            line-height: 1.4;
+            font-weight: 600;
+            transition: background 0.3s;
+            cursor: pointer;
         }
+        .shop-btn:hover { background-color: #333; }
 
-        .copyright {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #999;
-            letter-spacing: 1px;
+        /* 底部信息 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            border-top: 1px solid #eaeaea;
+            background: #fff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- 顶部导航 -->
     <header>
-        <div class="logo-container">
-            <!-- Custom Logo -->
-            <div class="logo-icon">KY</div>
-            <div class="logo-text">KYWEAR CO.</div>
+        <div class="icon-btn">☰</div>
+        <!-- 直接把原站那张彩色图片作为 Logo 放在了顶部 -->
+        <img src="https://www.kywear.com/cdn/shop/files/KYWEAR_Logo.png?v=1716302912&width=300" alt="KYWEAR" class="header-logo-img" onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=300'">
+        <div class="header-right">
+            <div class="icon-btn">🔔</div>
+            <div class="icon-btn">👤</div>
         </div>
-        <nav>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Contact</a>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Wear Your Support.<br>Champion the Community.</h1>
-        <p>More than just apparel. Every purchase champions sportsmanship and gives back to the community, one T-shirt and sport at a time.</p>
-    </section>
+    <!-- 口号 -->
+    <div class="slogan">
+        Keeping <span>You</span> <span>Wise</span> <span>Eager</span> And <span>Ready</span>
+    </div>
 
-    <!-- Product Collection -->
-    <section class="shop-container" id="shop">
-        <h2 class="section-title">Featured Collection</h2>
+    <div class="main-container">
         
-        <div class="product-grid">
+        <!-- 活动卡片 -->
+        <div class="event-card">
+            <!-- 左边海报图：使用了原站的海报图片 -->
+            <div class="event-image">
+                <img src="https://www.kywear.com/cdn/shop/files/Thanks_N_Hoops_Flyer.jpg?v=1716303912&width=600" alt="Thanks-N-Hoops Poster" onerror="this.style.display='none'">
+                <!-- 如果原站图片防盗链了，就显示下面这个篮球图 -->
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=600" alt="Basketball" style="max-width: 300px; display: none;" id="fallback-poster">
+            </div>
             
-            <!-- Product 1: Shorts -->
-            <div class="product-card">
-                <div class="product-image img-shorts"></div>
-                <div class="product-info">
-                    <h3>Vitality Performance Shorts</h3>
-                    <p class="product-desc">High-waisted women’s performance shorts with vertical gradient logo.</p>
-                    <div class="price">$35.00</div>
-                    <a href="#" class="buy-btn">View Product</a>
+            <!-- 右边文字信息 -->
+            <div class="event-info">
+                <div class="event-tag">NEXT AT KYWEAR</div>
+                <h1 class="event-title">Thanks-N-Hoops</h1>
+                
+                <div class="event-details">
+                    <p>📅 Saturday, November 21, 2026</p>
+                    <p>📍 Campbellsville High School</p>
+                    <p>👥 Boys & Girls Ages 7–18</p>
+                    <p>⏰ Doors Open 11:30 AM</p>
                 </div>
-            </div>
-
-            <!-- Product 2: Tee -->
-            <div class="product-card">
-                <div class="product-image img-tee"></div>
-                <div class="product-info">
-                    <h3>Signature Faith Tee</h3>
-                    <p class="product-desc">Support Emma Barnett — faith, determination, and community.</p>
-                    <div class="price">$25.00</div>
-                    <a href="#" class="buy-btn">View Product</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Info -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h4>GET IN TOUCH</h4>
-            <p>Have questions about our mission or products? We would love to hear from you.</p>
-            
-            <!-- 包含邮箱和地址的模块 -->
-            <div class="contact-info">
-                <a href="mailto:info@kywear.org" class="contact-btn">info@kywear.org</a>
-                <!-- 加上了真实地址 -->
-                <div class="address">
-                    2424 Saloma Rd, Campbellsville, KY 42718
-                </div>
-            </div>
-
-            <div class="copyright">
-                &copy; 2024 KYWEAR CO. ALL RIGHTS RESERVED.
+                
+                <p class="event-desc">Basketball is the starting point. The experience is bigger.</p>
+                <div class="badge">Shirt included</div>
+                
+                <a href="javascript:void(0)" onclick="alert('Registration will open soon!')" class="register-btn">Save my spot · $75</a>
             </div>
         </div>
+
+        <!-- 商品区 -->
+        <div class="section-header">SHOP THE DROP</div>
+        
+        <div class="product-item">
+            <div class="product-thumb"></div>
+            <div class="product-data">
+                <div class="product-category">ATHLETE STORE · DEA BRADLEY</div>
+                <div class="product-name">Dea Bradley #32 Game Day Long Sleeve Tee</div>
+                <a href="javascript:void(0)" onclick="alert('Product page coming soon!')" class="shop-btn">Shop →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部信息 -->
+    <footer>
+        <p>Contact us: <a href="mailto:info@kywear.org" style="font-weight:600; color:#111;">info@kywear.org</a></p>
+        <p style="margin-top:5px;">2424 Saloma Rd, Campbellsville, KY 42718</p>
+        <p style="margin-top:15px; color:#bbb;">&copy; 2024 KYWEAR CO. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <!-- 这段小脚本是为了如果原图防盗链加载不出来，自动显示备用图 -->
+    <script>
+        document.querySelector('.event-image img').onerror = function() {
+            this.style.display = 'none';
+            document.getElementById('fallback-poster').style.display = 'block';
+        };
+    </script>
 </body>
 </html>
